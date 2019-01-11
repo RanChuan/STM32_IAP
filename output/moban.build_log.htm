@@ -1,0 +1,53 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: μVision V5.14.0.0
+Copyright (C) 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: ran chuan, aa, LIC=MGX63-AAE8U-UKKB6-D65L0-KFD8L-Y1ICA
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Professional  Version: 5.14.0.0
+Toolchain Path:  D:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.05 update 1 (build 106)
+Assembler:       Armasm.exe V5.05 update 1 (build 106)
+Linker/Locator:  ArmLink.exe V5.05 update 1 (build 106)
+Library Manager: ArmAr.exe V5.05 update 1 (build 106)
+Hex Converter:   FromElf.exe V5.05 update 1 (build 106)
+CPU DLL:         SARMCM3.DLL V5.14.0.0
+Dialog DLL:      DARMSTM.DLL V1.65.0.0
+Target DLL:      Segger\JL2CM3.dll V2.99.13.0
+Dialog DLL:      TARMSTM.DLL V1.64.0.0
+ 
+<h2>Project:</h2>
+F:\川~\STM32 F1\2018.9.12 温控第一套 IAP更新\2018.9.10 IAP程序\moban.uvprojx
+Project File Date:  10/25/2018
+
+<h2>Output:</h2>
+Build target 'environment'
+compiling usart.c...
+system\usart\usart.c(42): warning:  #940-D: missing return statement at end of non-void function "_sys_exit"
+  } 
+system\usart\usart.c(221): warning:  #177-D: variable "want_length" was declared but never referenced
+        u16 want_length;
+system\usart\usart.c(310): warning:  #550-D: variable "t" was set but never used
+        u8 t;
+system\usart\usart.c(343): warning:  #940-D: missing return statement at end of non-void function "USART1_tx_bytes"
+  }
+system\usart\usart.c(63): warning:  #177-D: variable "MODE2_IF_RECV" was declared but never referenced
+  static u8 MODE2_IF_RECV=0;//模式2接收完成标志位
+system\usart\usart.c: 5 warnings, 0 errors
+linking...
+Program Size: Code=8864 RO-data=780 RW-data=2140 ZI-data=5828  
+FromELF: creating hex file...
+".\output\moban.axf" - 0 Error(s), 5 Warning(s).
+
+<h2>Collection of Component include folders:</h2>
+  F:\川~\STM32 F1\2018.9.12 温控第一套 IAP更新\2018.9.10 IAP程序\RTE
+  D:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\1.0.5\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+</pre>
+</body>
+</html>

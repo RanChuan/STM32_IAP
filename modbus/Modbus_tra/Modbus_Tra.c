@@ -1,0 +1,119 @@
+#include "Modbus_Tra.h"
+void Modbus_Tra()
+{
+	u8 type = 1;
+	my_frame_typedef agree;
+	if(my_dev.frame_ture==1)
+	{
+		type=Pack_Frame(&agree);
+	}
+	if(type==CRC_OK)
+	{
+		if(agree.id==0x01)
+		{
+			if(agree.address==ADDRESS[7]||agree.address==0xFF)
+			{
+				switch(agree.fun)
+				{
+					case 0x01:
+					{
+						if(agree.datalen==0x0F)
+						{
+							UnPack_Data(&agree);
+						}
+					}break;
+					case 0x11:Pack_Data(&agree);Send_Pack_Frame(&agree);break;//·¢ËÍÊı¾İ
+					default:break;
+				}
+			}
+		}
+	}
+}
+
+void Pack_Data(my_frame_typedef *frame)
+{
+	Set_RX_flash();
+	frame->id=0x02;
+	frame->fun=0x02;
+	frame->datalen=0x1A;
+	frame->data[0]=data[0];
+	frame->data[1]=data[1];
+	frame->data[2]=data[2];
+	frame->data[3]=data[3];
+	frame->data[4]=data[4];
+	frame->data[5]=data[5];
+	frame->data[6]=TEMP_UP[6];
+	frame->data[7]=TEMP_UP[7];
+	frame->data[8]=TEMP_DOWN[6];
+	frame->data[9]=TEMP_DOWN[7];
+	frame->data[10]=HUMI_UP[6];
+	frame->data[11]=HUMI_UP[7];
+	frame->data[12]=HUMI_DOWN[6];
+	frame->data[13]=HUMI_DOWN[7];
+	frame->data[14]=PM_UP[6];
+	frame->data[15]=PM_UP[7];
+	if(LED1==0)
+	{
+		frame->data[16]=0x01;
+	}
+	else
+	{
+		frame->data[16]=0x00;
+	}
+	if(LED2==0)
+	{
+		frame->data[17]=0x01;
+	}
+	else
+	{
+		frame->data[17]=0x00;
+	}
+	if(LED3==0)
+	{
+		frame->data[18]=0x01;
+	}
+	else
+	{
+		frame->data[18]=0x00;
+	}
+	if(LED4==0)
+	{
+		frame->data[19]=0x01;
+	}
+	else
+	{
+		frame->data[19]=0x00;
+	}
+	if(LED5==0)
+	{
+		frame->data[20]=0x01;
+	}
+	else
+	{
+		frame->data[20]=0x00;
+	}
+	frame->data[21]=HOUR_UP[7];
+	frame->data[22]=MINUTE_UP[7];
+	frame->data[23]=HOUR_DOWN[7];
+	frame->data[24]=MINUTE_DOWN[7];
+	frame->data[25]=SAVE_BOOL[7];
+}
+void UnPack_Data(my_frame_typedef *frame)
+{
+	TEMP_UP[6]=frame->data[0];
+	TEMP_UP[7]=frame->data[1];
+	TEMP_DOWN[6]=frame->data[2];
+	TEMP_DOWN[7]=frame->data[3];
+	HUMI_UP[6]=frame->data[4];
+	HUMI_UP[7]=frame->data[5];
+	HUMI_DOWN[6]=frame->data[6];
+	HUMI_DOWN[7]=frame->data[7];
+	PM_UP[6]=frame->data[8];
+	PM_UP[7]=frame->data[9];
+	HOUR_UP[7]=frame->data[10];
+	MINUTE_UP[7]=frame->data[11];
+	HOUR_DOWN[7]=frame->data[12];
+	MINUTE_DOWN[7]=frame->data[13];
+	SAVE_BOOL[7]=frame->data[14];
+	Set_TX_flash();
+}

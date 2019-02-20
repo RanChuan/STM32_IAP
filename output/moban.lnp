@@ -16,7 +16,14 @@
 ".\output\stm32f10x_rcc.o"
 ".\output\misc.o"
 ".\output\stm32f10x_flash.o"
+".\output\stm32f10x_spi.o"
 ".\output\stmflash.o"
---ro-base 0x08000000 --entry 0x08000000 --rw-base 0x20000000 --entry Reset_Handler --first __Vectors --strict --summary_stderr --info summarysizes --map --xref --callgraph --symbols
+".\output\fats.o"
+".\output\mmc_sd.o"
+".\output\spi.o"
+".\output\malloc.o"
+".\output\program_files.o"
+--strict --scatter ".\output\moban.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list ".\moban.map" -o .\output\moban.axf

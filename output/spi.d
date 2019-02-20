@@ -1,9 +1,9 @@
-.\output\spi.o: HARDWARE\SPI\spi.c
-.\output\spi.o: HARDWARE\SPI\spi.h
+.\output\spi.o: HARDWARE\SD_CARD\spi.c
+.\output\spi.o: HARDWARE\SD_CARD\spi.h
 .\output\spi.o: .\system\sys\sys.h
 .\output\spi.o: .\startup\stm32f10x.h
 .\output\spi.o: .\startup\core_cm3.h
-.\output\spi.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\output\spi.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\output\spi.o: .\startup\system_stm32f10x.h
 .\output\spi.o: .\startup\stm32f10x_conf.h
 .\output\spi.o: .\libraries\inc\stm32f10x_bkp.h

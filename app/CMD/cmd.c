@@ -5,7 +5,7 @@
 #include "sys.h"
 
 #define FLASH_SIZE ((*(u32 *)0x1FFFF7E0)&0x0000ffff)
-#define IAP_SIZE  10
+#define IAP_SIZE  20
 
 u16 flash_size=0;					//可以操作的flash大小
 u8 data_buff[2048]={456%256,456/256};		//flash缓冲池
@@ -100,7 +100,7 @@ void write_flash (u8 *buff)
 		cmd_return(buff,ERR_FLASHADDR);
 		return ;
 	}
-	if (size>flash_size*1024-(flash_addr-0x8002800))//确保数据都在在可操作地址范围内2018.10.8
+	if (size>flash_size*1024-(flash_addr-(0x8000000+IAP_SIZE*1024)))//确保数据都在在可操作地址范围内2018.10.8
 	{
 		cmd_return(buff,ERR_DATALENGTH);
 		return ;
@@ -233,10 +233,10 @@ void cmd_return (u8 * buff,u16 err)
 
 void jump_app(void)
 {
-	if(((*(vu32*)0x8002800)&0x2FFE0000)==0x20000000)	//检查栈顶地址是否合法.
+	if(((*(vu32*)0x8005000)&0x2FFE0000)==0x20000000)	//检查栈顶地址是否合法.
 	{ 
-		user_main=(void (*)(void))*(vu32*)(0x8002800+4);		//用户代码区第二个字为程序开始地址(复位地址)		
-		__set_MSP(*(vu32*)0x8002800);					//初始化APP堆栈指针(用户代码区的第一个字用于存放栈顶地址)
+		user_main=(void (*)(void))*(vu32*)(0x8005000+4);		//用户代码区第二个字为程序开始地址(复位地址)		
+		__set_MSP(*(vu32*)0x8005000);					//初始化APP堆栈指针(用户代码区的第一个字用于存放栈顶地址)
 		user_main();									//跳转到APP.
 	}
 	

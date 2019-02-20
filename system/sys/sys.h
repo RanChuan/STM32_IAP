@@ -54,6 +54,16 @@
 
 
 
+	//¶¨ÒåIAP²Ù×÷
+#define IAP_CMD (*(u32 *)0x20000000)
+
+#define IAP_CMD_REBOOT			0xf0000000
+#define IAP_CMD_RF 					0xf0000001
+#define IAP_CMD_SDCARD			0xf0000002
+#define IAP_CMD_INTERNET		0xf0000003
+#define IAP_CMD_FLASH				0xf0000004
+
+
 void NVIC_Configuration(void);
 
 //__asm void MSR_MSP(u32 addr) ;

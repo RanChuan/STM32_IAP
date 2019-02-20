@@ -36,3 +36,5 @@
 .\output\main.o: .\HARDWARE\UART_485\uart_485.h
 .\output\main.o: .\system\config.h
 .\output\main.o: .\HARDWARE\STMFLASH\stmflash.h
+.\output\main.o: .\HARDWARE\SD_CARD\fats.h
+.\output\main.o: .\SOFTWARE\program_files.h

@@ -13,6 +13,7 @@ void System_Init()
 	
 	USART1_Init(115200);				//RF传递信息串口
 	AS32_Param_Init( );					//无线模块初始化
+	fats_init();
 }
 
 

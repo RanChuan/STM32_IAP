@@ -310,7 +310,7 @@
               <OCR_RVCT4>
                 <Type>1</Type>
                 <StartAddress>0x8000000</StartAddress>
-                <Size>0x10000</Size>
+                <Size>0x5000</Size>
               </OCR_RVCT4>
               <OCR_RVCT5>
                 <Type>1</Type>
@@ -334,7 +334,7 @@
               </OCR_RVCT8>
               <OCR_RVCT9>
                 <Type>0</Type>
-                <StartAddress>0x20000000</StartAddress>
+                <StartAddress>0x20000004</StartAddress>
                 <Size>0x5000</Size>
               </OCR_RVCT9>
               <OCR_RVCT10>
@@ -365,7 +365,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER,STM32F10X_MD</Define>
               <Undefine></Undefine>
-              <IncludePath>.\libraries\inc;.\libraries\src;.\startup;.\app\AS62;.\app\FLASH;.\app\Max485;.\app\PM;.\app\TemHem;.\HARDWARE\BEEP;.\HARDWARE\KEY;.\HARDWARE\LED;.\HARDWARE\RTC;.\HARDWARE\SPI;.\HARDWARE\TIMER;.\system\delay;.\system\sys;.\system\usart;.\system\usart_485;.\system\usart_PM;.\HARDWARE\EXIT;.\app\DATA;.\app\LCDFLASH;.\modbus\check;.\modbus\conmunication;.\HARDWARE\TIMER;.\modbus\Modbus_tra;.\app\TVOC;.\HARDWARE\CONTR;.\HARDWARE\REMOTE;.\app\CRC;.\app\CMD;.\HARDWARE\STMFLASH;.\system;.\HARDWARE\HMI;.\HARDWARE\UART_485;.\HARDWARE\WDG</IncludePath>
+              <IncludePath>.\libraries\inc;.\libraries\src;.\startup;.\app\AS62;.\app\FLASH;.\app\Max485;.\app\PM;.\app\TemHem;.\HARDWARE\BEEP;.\HARDWARE\KEY;.\HARDWARE\LED;.\HARDWARE\RTC;.\HARDWARE\SPI;.\HARDWARE\TIMER;.\system\delay;.\system\sys;.\system\usart;.\system\usart_485;.\system\usart_PM;.\HARDWARE\EXIT;.\app\DATA;.\app\LCDFLASH;.\modbus\check;.\modbus\conmunication;.\HARDWARE\TIMER;.\modbus\Modbus_tra;.\app\TVOC;.\HARDWARE\CONTR;.\HARDWARE\REMOTE;.\app\CRC;.\app\CMD;.\HARDWARE\STMFLASH;.\system;.\HARDWARE\HMI;.\HARDWARE\UART_485;.\HARDWARE\WDG;.\HARDWARE\SD_CARD;.\HARDWARE\MALLOC;.\SOFTWARE</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -386,7 +386,7 @@
             </VariousControls>
           </Aads>
           <LDads>
-            <umfTarg>0</umfTarg>
+            <umfTarg>1</umfTarg>
             <Ropi>0</Ropi>
             <Rwpi>0</Rwpi>
             <noStLib>0</noStLib>
@@ -513,6 +513,11 @@
               <FileType>1</FileType>
               <FilePath>.\libraries\src\stm32f10x_flash.c</FilePath>
             </File>
+            <File>
+              <FileName>stm32f10x_spi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\libraries\src\stm32f10x_spi.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -523,10 +528,37 @@
               <FileType>1</FileType>
               <FilePath>.\HARDWARE\STMFLASH\stmflash.c</FilePath>
             </File>
+            <File>
+              <FileName>fats.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\HARDWARE\SD_CARD\fats.c</FilePath>
+            </File>
+            <File>
+              <FileName>MMC_SD.C</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\HARDWARE\SD_CARD\MMC_SD.C</FilePath>
+            </File>
+            <File>
+              <FileName>spi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\HARDWARE\SD_CARD\spi.c</FilePath>
+            </File>
+            <File>
+              <FileName>malloc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\HARDWARE\MALLOC\malloc.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
-          <GroupName>modbus</GroupName>
+          <GroupName>SOFTWARE</GroupName>
+          <Files>
+            <File>
+              <FileName>program_files.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SOFTWARE\program_files.c</FilePath>
+            </File>
+          </Files>
         </Group>
       </Groups>
     </Target>

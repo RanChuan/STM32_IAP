@@ -21,11 +21,26 @@ Target DLL:      Segger\JL2CM3.dll V2.99.13.0
 Dialog DLL:      TARMSTM.DLL V1.64.0.0
  
 <h2>Project:</h2>
-F:\川~\STM32 F1\2018.9.12 温控第一套 IAP更新\2018.9.10 IAP程序\moban.uvprojx
-Project File Date:  10/25/2018
+F:\川~\GitHub\STM32_IAP\moban.uvprojx
+Project File Date:  01/14/2019
 
 <h2>Output:</h2>
-Build target 'environment'
+Rebuild target 'environment'
+compiling main.c...
+.\HARDWARE\HMI\hmi_usart.h(17): warning:  #1-D: last line of file ends without a newline
+  #endif
+user\main.c(12): warning:  #177-D: variable "i" was declared but never referenced
+        u32 i=0;
+user\main.c: 2 warnings, 0 errors
+compiling stm32f10x_it.c...
+compiling system_init.c...
+.\HARDWARE\HMI\hmi_usart.h(17): warning:  #1-D: last line of file ends without a newline
+  #endif
+user\system_init.c(16): warning:  #223-D: function "fats_init" declared implicitly
+        fats_init();
+user\system_init.c: 2 warnings, 0 errors
+compiling delay.c...
+compiling sys.c...
 compiling usart.c...
 system\usart\usart.c(42): warning:  #940-D: missing return statement at end of non-void function "_sys_exit"
   } 
@@ -38,13 +53,53 @@ system\usart\usart.c(343): warning:  #940-D: missing return statement at end of 
 system\usart\usart.c(63): warning:  #177-D: variable "MODE2_IF_RECV" was declared but never referenced
   static u8 MODE2_IF_RECV=0;//模式2接收完成标志位
 system\usart\usart.c: 5 warnings, 0 errors
+compiling drv_AS62.c...
+app\AS62\drv_AS62.c(72): warning:  #68-D: integer conversion resulted in a change of sign
+        if (i==0) return -1;
+app\AS62\drv_AS62.c(82): warning:  #940-D: missing return statement at end of non-void function "AS32_TX"
+  }
+app\AS62\drv_AS62.c(94): warning:  #68-D: integer conversion resulted in a change of sign
+        if (i==0) return -1;
+app\AS62\drv_AS62.c(98): warning:  #940-D: missing return statement at end of non-void function "AS32_TX_none"
+  }
+app\AS62\drv_AS62.c: 4 warnings, 0 errors
+compiling crc8_16.c...
+compiling cmd.c...
+app\CMD\cmd.c(188): warning:  #236-D: controlling expression is constant
+                        if (data_real) 
+app\CMD\cmd.c: 1 warning, 0 errors
+compiling core_cm3.c...
+compiling system_stm32f10x.c...
+assembling startup_stm32f10x_md.s...
+compiling stm32f10x_gpio.c...
+compiling stm32f10x_usart.c...
+compiling stm32f10x_rcc.c...
+compiling misc.c...
+compiling stm32f10x_flash.c...
+compiling stm32f10x_spi.c...
+compiling stmflash.c...
+compiling fats.c...
+HARDWARE\SD_CARD\fats.c(41): warning:  #188-D: enumerated type mixed with another type
+        return FATS_STATE;
+HARDWARE\SD_CARD\fats.c(114): warning:  #188-D: enumerated type mixed with another type
+                return ret;     
+HARDWARE\SD_CARD\fats.c(118): warning:  #188-D: enumerated type mixed with another type
+        return ret;     
+HARDWARE\SD_CARD\fats.c: 3 warnings, 0 errors
+compiling MMC_SD.C...
+compiling spi.c...
+compiling malloc.c...
+compiling program_files.c...
+SOFTWARE\program_files.c(98): warning:  #177-D: variable "addr" was declared but never referenced
+        u32 addr=0;
+SOFTWARE\program_files.c: 1 warning, 0 errors
 linking...
-Program Size: Code=8864 RO-data=780 RW-data=2140 ZI-data=5828  
+Program Size: Code=12668 RO-data=780 RW-data=2184 ZI-data=5852  
 FromELF: creating hex file...
-".\output\moban.axf" - 0 Error(s), 5 Warning(s).
+".\output\moban.axf" - 0 Error(s), 18 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
-  F:\川~\STM32 F1\2018.9.12 温控第一套 IAP更新\2018.9.10 IAP程序\RTE
+  F:\川~\GitHub\STM32_IAP\RTE
   D:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\1.0.5\Device\Include
 
 <h2>Collection of Component Files used:</h2>
